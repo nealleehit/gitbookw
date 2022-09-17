@@ -412,5 +412,73 @@ for m=1:100
 end
 ```
 
-## 2. Fourier Transform
+## 2. Fourier Transform Topics
 
+### 2.1 Fourier Transforms 
+
+If we already have the complex Fourier expression,
+
+$\begin{equation} f(x) = \sum_{k=-\infty}^{\infty} c_k e^{ik\pi x/L} \end{equation}$
+
+where $\omega_k = \frac{k\pi}{L} = k \Delta \omega$, $\Delta \omega = \pi/L$, and $c_k = \frac{1}{2\pi} \left< f(x), \psi_k \right>  =\frac{1}{2L}\int_{-L}^{L} f(x) \underbrace{e^{-ik\pi x/L}}_{\psi_k}  dx $. The Fourier Transform expressed as,
+
+$\begin{equation} f(x) = \lim_{\Delta \omega \to 0}\sum_{k=-\infty}^{\infty} \frac{\Delta \omega}{2\pi} \int_{-\pi/\Delta \omega}^{\pi/\Delta \omega} f(\xi) e^{-ik \Delta \omega \xi} d\xi e^{ik \Delta \omega x} \\ = \int_{-\infty}^{\infty} \frac{1}{2\pi} \int_{-\infty}^{\infty} f(\xi) e^{-i \omega \xi} d\xi e^{i \omega x} d\omega\end{equation}$
+
+So the Fourier Transforms,
+
+$\begin{equation} \hat f(\omega) = \cal{F}\left(f(x)\right) = \int_{-\infty}^{\infty} f(x) e^{-i \omega x} dx \end{equation}$
+
+$\begin{equation} f(x) = \cal{F}^{-1} \left( \hat f (\omega)\right) = \frac{1}{2\pi} \int_{-\infty}^{\infty} \hat f(\omega) e^{i \omega x} d\omega \end{equation}$
+
+These are the Fourier Transform Pair.
+
+### 2.2 Fourier Transform and Derivatives
+
+$\begin{equation} 
+    \begin{array}{ll} 
+    \cal{F}\left( \frac{d}{dx}f(x)\right) &= \int_{-\infty}^{\infty} \underbrace{\frac{df(x)}{dx}}_{dv} \underbrace{e^{-i \omega x}}_{u} dx \\ 
+    & = \underbrace{\left[ f(x)e^{-i \omega x} \right]^{\infty}_{-\infty}}_{uv=0} - \int_{-\infty}^{\infty} \underbrace{df(x)}_{v} \underbrace{(-i\omega e^{-i \omega x})}_{du} dx \\ 
+    & = i \omega \underbrace{\int_{-\infty}^{\infty} f(x) e^{-i \omega x} dx}_{\cal{F}\left( f(x)\right)} \\ 
+    & = i \omega \cal{F}\left( f(x)\right) 
+    \end{array} 
+\end{equation}$
+
+### 2.3 Fourier Transform and Convolution Integral
+
+Convolution integral
+
+$\begin{equation} 
+    \left( f * g \right) = \int_{-\infty}^{\infty} f(x-\xi) g(\xi) d\xi 
+\end{equation}$
+
+Fourier 
+
+$\begin{equation} 
+    \cal{F}\left( f*g \right) =  \cal{F}\left( f \right) \cal{F}\left( g \right) = \hat f \hat g 
+\end{equation}$
+
+While
+
+$\begin{equation} 
+    \begin{array}{ll}
+    \cal{F}^{-1}\left( \hat f \hat g \right)(x) & = \frac{1}{2\pi} \int_{-\infty}^{\infty} \hat f(\omega) \hat g(\omega) e^{i\omega x} d\omega \\
+    & = \frac{1}{2\pi} \int_{-\infty}^{\infty} \hat f(\omega)\left( \int_{-\infty}^{\infty} g(y) e^{-i\omega y} dy \right)e^{i\omega x} d\omega \\
+    & = \frac{1}{2\pi} \int_{-\infty}^{\infty} g(y) \int_{-\infty}^{\infty} \hat f(\omega)  e^{i\omega (x- y)} d\omega dy \\
+    & = \int_{-\infty}^{\infty} g(y) f(x-y) dy \\
+    & = f * g
+    \end{array}
+\end{equation}$
+
+### 2.4 Parseval's Theorem
+
+$$ \cal{F} \left( \alpha f(x) +\beta g(x)\right) = \alpha \cal{F}(f) + \beta \cal{F}(g)$$
+
+The Parseval's Theorem is 
+
+$\begin{equation}
+    \int_{-\infty}^{\infty} \left\vert \hat f(\omega) \right\vert^2 d\omega = 2\pi\int_{-\infty}^{\infty} \left\vert f(x) \right\vert^2 dx
+\end{equation}$
+
+## 3. The Discrete Fourier Transform (DFT)
+
+### 3.1 
