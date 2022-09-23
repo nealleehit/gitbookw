@@ -4,7 +4,6 @@
 src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-
 # Fourier Analysis
 
 ## 1. Fourier Analysis Overview (Wavelets)
@@ -32,7 +31,7 @@ Define,
 
 $\begin{equation} \left<f(x),g(x) \right> = \int_a^bf(x)\bar g(x)dx \end{equation}$
 
-This is a kind of projection operation takes the function $f(x)$ project into many Sine or Cosine orthogonal coordinates. 
+This is a kind of projection operation takes the function $f(x)$ project into many Sine or Cosine orthogonal coordinates.
 
 $\begin{equation} \vec f = \left< \vec f, \vec x \right>\frac{\vec x}{\Vert \vec x \Vert^2} + \left< \vec f, \vec y \right>\frac{\vec y}{\Vert \vec y \Vert^2} = \left< \vec f, \vec u \right>\frac{\vec u}{\Vert \vec u \Vert^2} + \left< \vec f, \vec v \right>\frac{\vec v}{\Vert \vec v \Vert^2}\end{equation}$
 
@@ -40,7 +39,7 @@ As we all know,
 
 $\begin{equation} f(x)=\frac{A_0}{2} + \sum_{k=1}^{\inf}\left( A_k \cos (kx) + B_k \sin(kx) \right) \end{equation}$
 
-such that, 
+such that,
 
 $\begin{equation} A_k=\frac{1}{\pi} \int_{-\pi}^{\pi}f(x)\cos(kx)dx = \frac{1}{\left\Vert cos(kx) \right\Vert^2} \left< f(x),cos(kx)\right>\end{equation}$
 
@@ -50,7 +49,7 @@ Found the boundary of the integral taking $[0, L]$, $f(x)$ changes into,
 
 $\begin{equation} f(x)=\frac{A_0}{2} + \sum_{k=1}^{\inf}\left( A_k \cos \left( \frac{2\pi k x}{L} \right) + B_k \sin \left( \frac{2\pi k x}{L} \right) \right) \end{equation}$
 
-Such that, 
+Such that,
 
 $\begin{equation} A_k=\frac{2}{L} \int_{0}^{L}f(x)\cos \left( \frac{2\pi k x}{L} \right)dx \end{equation}$
 
@@ -82,15 +81,15 @@ $\begin{equation} f(x) = \sum_{k=-\infty}^{\infty} c_k e^{ikx} = \sum_{k=-\infty
 
 Define $\psi_k :=e^{ikx}$ as the orthogonal base vectors. So we have
 
-$\begin{equation} \left< \psi_j, \psi_k \right> 
-= \int_{-\pi}^{\pi}e^{ijx} e^{-ikx}dx 
-=\int_{-\pi}^{\pi} e^{i(j-k)x}dx 
-= \frac{1}{i(j-k)}\left[ e^{i(j-k)x}\right]^\pi_{-\pi} 
+$\begin{equation} \left< \psi_j, \psi_k \right>
+= \int_{-\pi}^{\pi}e^{ijx} e^{-ikx}dx
+=\int_{-\pi}^{\pi} e^{i(j-k)x}dx
+= \frac{1}{i(j-k)}\left[ e^{i(j-k)x}\right]^\pi_{-\pi}
 = \left\{ \begin{array}{lc} 0 ~~\rm{ if }~~ j \ne k \\ 2\pi ~~\rm{if } ~~j= k \end{array} \right.\end{equation}$
 
 Then $f(x)$ can be writen as
 
-$$f(x) = \frac{1}{2\pi} \sum_{k=-\infty}^{\infty} \underbrace {\left< {f\left( x \right),{\psi _k}} \right> }_{c_k}\underbrace {\psi _k}_{e^{ikx}}$$
+$$f(x) = \frac{1}{2\pi} \sum_{k=-\infty}^{\infty} \underbrace {\left< {f\left( x \right),{\psi_k}} \right> }_{c_k}\underbrace {\psi_k}_{e^{ikx}}$$
 
 Ex. Inner Product
 
@@ -348,6 +347,7 @@ plot(x,fFS,'r-','LineWidth',1.2)
 ```
 
 Ex Gibbs_production
+
 ```Matlab
 clear all, close all, clc
 
@@ -386,6 +386,7 @@ set(gcf,'PaperPositionMode','auto')
 ```
 
 Ex Gibbs_Movie
+
 ```Matlab
 clear all, close all, clc
 
@@ -417,7 +418,7 @@ end
 
 ## 2. Fourier Transform Topics
 
-### 2.1 Fourier Transforms 
+### 2.1 Fourier Transforms
 
 If we already have the complex Fourier expression,
 
@@ -437,32 +438,32 @@ These are the Fourier Transform Pair.
 
 ### 2.2 Fourier Transform and Derivatives
 
-$\begin{equation} 
-    \begin{array}{ll} 
-    \cal{F}\left( \frac{d}{dx}f(x)\right) &= \int_{-\infty}^{\infty} \underbrace{\frac{df(x)}{dx}}_{dv} \underbrace{e^{-i \omega x}}_{u} dx \\ 
-    & = \underbrace{\left[ f(x)e^{-i \omega x} \right]^{\infty}_{-\infty}}_{uv=0} - \int_{-\infty}^{\infty} \underbrace{df(x)}_{v} \underbrace{(-i\omega e^{-i \omega x})}_{du} dx \\ 
-    & = i \omega \underbrace{\int_{-\infty}^{\infty} f(x) e^{-i \omega x} dx}_{\cal{F}\left( f(x)\right)} \\ 
-    & = i \omega \cal{F}\left( f(x)\right) 
-    \end{array} 
+$\begin{equation}
+    \begin{array}{ll}
+    \cal{F}\left( \frac{d}{dx}f(x)\right) &= \int_{-\infty}^{\infty} \underbrace{\frac{df(x)}{dx}}_{dv} \underbrace{e^{-i \omega x}}_{u} dx \\
+    & = \underbrace{\left[ f(x)e^{-i \omega x} \right]^{\infty}_{-\infty}}_{uv=0} - \int_{-\infty}^{\infty} \underbrace{df(x)}_{v} \underbrace{(-i\omega e^{-i \omega x})}_{du} dx \\
+    & = i \omega \underbrace{\int_{-\infty}^{\infty} f(x) e^{-i \omega x} dx}_{\cal{F}\left( f(x)\right)} \\
+    & = i \omega \cal{F}\left( f(x)\right)
+    \end{array}
 \end{equation}$
 
 ### 2.3 Fourier Transform and Convolution Integral
 
 Convolution integral
 
-$\begin{equation} 
-    \left( f * g \right) = \int_{-\infty}^{\infty} f(x-\xi) g(\xi) d\xi 
+$\begin{equation}
+    \left( f * g \right) = \int_{-\infty}^{\infty} f(x-\xi) g(\xi) d\xi
 \end{equation}$
 
-Fourier 
+Fourier
 
-$\begin{equation} 
-    \cal{F}\left( f*g \right) =  \cal{F}\left( f \right) \cal{F}\left( g \right) = \hat f \hat g 
+$\begin{equation}
+    \cal{F}\left( f*g \right) =  \cal{F}\left( f \right) \cal{F}\left( g \right) = \hat f \hat g
 \end{equation}$
 
 While
 
-$\begin{equation} 
+$\begin{equation}
     \begin{array}{ll}
     \cal{F}^{-1}\left( \hat f \hat g \right)(x) & = \frac{1}{2\pi} \int_{-\infty}^{\infty} \hat f(\omega) \hat g(\omega) e^{i\omega x} d\omega \\
     & = \frac{1}{2\pi} \int_{-\infty}^{\infty} \hat f(\omega)\left( \int_{-\infty}^{\infty} g(y) e^{-i\omega y} dy \right)e^{i\omega x} d\omega \\
@@ -476,7 +477,7 @@ $\begin{equation}
 
 $$ \cal{F} \left( \alpha f(x) +\beta g(x)\right) = \alpha \cal{F}(f) + \beta \cal{F}(g)$$
 
-The Parseval's Theorem is 
+The Parseval's Theorem is
 
 $\begin{equation}
     \int_{-\infty}^{\infty} \left\vert \hat f(\omega) \right\vert^2 d\omega = 2\pi\int_{-\infty}^{\infty} \left\vert f(x) \right\vert^2 dx
@@ -493,18 +494,18 @@ $\begin{equation} \begin{array}{}
 
 such that, $\omega_n = e^{-2\pi i/n}$
 
-$\begin{equation} 
+$\begin{equation}
     \left[ \begin{array}{}
     \hat f_0 \\ \hat f_1 \\ \hat f_2 \\ \vdots \\ f_n
-    \end{array} \right] = 
-    \left[ \begin{array}{c} 
+    \end{array} \right] =
+    \left[ \begin{array}{c}
     1 & 1 & 1 & \cdots & 1 \\
     1 & \omega_n & \omega_n^2 & \cdots & \omega_n^{n-1} \\
     1 & \omega_n^2 & \omega_n^4 & \cdots & \omega_n^{2(n-1)} \\
     \vdots & \vdots & \vdots & \ddots & \vdots \\
     1 & \omega_n^{n-1} & \omega_n^{2(n-1)} & \cdots & \omega_n^{(n-1)^2}
-    \end{array} \right] 
-    \left[ \begin{array}{} f_0 \\ f_1 \\ f_2 \\ \vdots \\ f_n \end{array} \right] 
+    \end{array} \right]
+    \left[ \begin{array}{} f_0 \\ f_1 \\ f_2 \\ \vdots \\ f_n \end{array} \right]
 \end{equation}$
 where $\omega_n = e^{-2\pi i/n}$. This matrix expression is the DFT matrix.
 
@@ -528,33 +529,33 @@ imagesc(real(DFT))
 
 ## 4. Fast Fourier Transform (FFT)
 
-The computational cost for DFT is $\cal{O}(n^2)$, for FFT is$\cal{O}(n\log (n))$, Which means for a series of data $n=4.4 \times 10^5$, the computation for DFT and FFT is $10^{11}$ and $10^6$, respectively.
+The computational cost for DFT is $\cal{O}(n^2)$, for FFT is $\cal{O}(n\log (n))$, Which means for a series of data $n=4.4 \times 10^5$, the computation for DFT and FFT is $10^{11}$ and $10^6$, respectively.
 
 ### 4.1 The FFT Algorithm
 
-As in Eqn. $(25)$, 
+As in Eqn. $(25)$,
 
-$\begin{equation} 
+$\begin{equation}
     \hat{\mathbf{f}}  = \cal{F}_{1024} \mathbf{f} = \left[ \begin{array}{}
-    I_{512} & -D_{512} \\ I_{512} & -D_{512}\end{array} \right] 
-    \left[ \begin{array}{c} 
+    I_{512} & -D_{512} \\ I_{512} & -D_{512}\end{array} \right]
+    \left[ \begin{array}{c}
     \cal{F}_{512} & \cal{0} \\
-    \cal{0}  & \cal{F}_{512} 
+    \cal{0}  & \cal{F}_{512}
     \end{array} \right] \left[ \begin{array}{}
     \mathbf{f}_{even} \\ \mathbf{f}_{odd} \end{array} \right]
 \end{equation}$
 where $I_{512}$ is identity matrix with dimensionof $512 \times 512$, and
 $\begin{equation}
-    D_{512} = \left[ \begin{array}{c} 
+    D_{512} = \left[ \begin{array}{c}
     1 & 0  &  0 & \cdots & 0 \\
     0 & \omega_n & 0 & \cdots & 0 \\
     0 & 0& \omega_n^2 & \cdots & 0 \\
     \vdots & \vdots & \vdots & \ddots & \vdots \\
     0 & 0 & 0 & \cdots & \omega_n^{511}
-    \end{array} \right] 
+    \end{array} \right]
 \end{equation}$
 
-So we can 
+So we can
 
 $\cal{F}_{1024} \to \cal{F}_{512} \to \cal{F}_{256} \to \cal{F}_{128} \cdots \to \cal{F}_{4} \to \cal{F}_2$.
 
@@ -618,7 +619,7 @@ set(gcf,'PaperPositionMode','auto')
 print('-depsc2', '-loose', '../figures/DENOISE');
 ```
 
-* Ex. Computing Derivatives with FFT
+- Ex. Computing Derivatives with FFT
 
 ```Matlab
 clear all, close all, clc
@@ -652,7 +653,7 @@ legend('True Derivative','Finite Diff.','FFT Derivative')
 
 ## 5. Solve PDEs with the FFT
 
-* Ex1. FFT solve Heat PDE
+- Ex1. FFT solve Heat PDE
 
 ```Matlab
 clear all, close all, clc
@@ -739,7 +740,7 @@ set(gcf,'PaperPositionMode','auto')
 print('-depsc2', '-loose', '../../figures/FFTWave2');
 ```
 
-* Ex2. FFT solve Berger PDE
+- Ex2. FFT solve Berger PDE
 
 ```Matlab
 clear all, close all, clc
@@ -969,7 +970,6 @@ for keep =  [.1 .05 .01 .005]
 end
 ```
 
-
 ## 8. The Laplace Transform
 
 PDE $\to$ ODE
@@ -1026,11 +1026,10 @@ If $x(0) = 2$ and $\dot x(0) = -5$, are the initial conditions.
 
 $$(s^2+\frac{c}{m}s+\frac{k}{m}) \bar x(s) = 2s +5$$
 
-The solution is 
+The solution is
 $$\bar x (s) = \frac{2s+5}{s^2+\frac{c}{m}s+\frac{k}{m}} $$
 
 - If $$\ddot x + \frac{c}{m} \dot x +\frac{k}{m} x = u(t) $$
 
 then the solution is
 $$\bar x (s) = \frac{2s+5}{s^2+\frac{c}{m}s+\frac{k}{m}} + \frac{\bar u}{s^2+\frac{c}{m}s+\frac{k}{m}}$$
-
