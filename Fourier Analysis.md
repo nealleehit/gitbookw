@@ -4,9 +4,9 @@
 src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-# Fourier Analysis
+# Fourier Analysis Related Topics
 
-## 1. Fourier Analysis Overview (Wavelets)
+## 1. Fourier Analysis
 
 ### 1.1 Overview
 
@@ -29,63 +29,63 @@ Fast Fourier Transform (FFT)
 
 Define,
 
-$\begin{equation} \left<f(x),g(x) \right> = \int_a^bf(x)\bar g(x)dx \end{equation}$
+$$ \left<f(x),g(x) \right> = \int_a^bf(x)\bar g(x)dx \tag{1}$$
 
 This is a kind of projection operation takes the function $f(x)$ project into many Sine or Cosine orthogonal coordinates.
 
-$\begin{equation} \vec f = \left< \vec f, \vec x \right>\frac{\vec x}{\Vert \vec x \Vert^2} + \left< \vec f, \vec y \right>\frac{\vec y}{\Vert \vec y \Vert^2} = \left< \vec f, \vec u \right>\frac{\vec u}{\Vert \vec u \Vert^2} + \left< \vec f, \vec v \right>\frac{\vec v}{\Vert \vec v \Vert^2}\end{equation}$
+$$ \vec f = \left< \vec f, \vec x \right>\frac{\vec x}{\Vert \vec x \Vert^2} + \left< \vec f, \vec y \right>\frac{\vec y}{\Vert \vec y \Vert^2} = \left< \vec f, \vec u \right>\frac{\vec u}{\Vert \vec u \Vert^2} + \left< \vec f, \vec v \right>\frac{\vec v}{\Vert \vec v \Vert^2}\tag{2}$$
 
 As we all know,
 
-$\begin{equation} f(x)=\frac{A_0}{2} + \sum_{k=1}^{\inf}\left( A_k \cos (kx) + B_k \sin(kx) \right) \end{equation}$
+$$ f(x)=\frac{A_0}{2} + \sum_{k=1}^{\inf}\left( A_k \cos (kx) + B_k \sin(kx) \right) \tag{3} $$
 
 such that,
 
-$\begin{equation} A_k=\frac{1}{\pi} \int_{-\pi}^{\pi}f(x)\cos(kx)dx = \frac{1}{\left\Vert cos(kx) \right\Vert^2} \left< f(x),cos(kx)\right>\end{equation}$
+$$ A_k=\frac{1}{\pi} \int_{-\pi}^{\pi}f(x)\cos(kx)dx = \frac{1}{\left\Vert cos(kx) \right\Vert^2} \left< f(x),cos(kx)\right>\tag{4}$$
 
-$\begin{equation} B_k=\frac{1}{\pi} \int_{-\pi}^{\pi}f(x)\sin(kx)dx = \frac{1}{\left\Vert sin(kx) \right\Vert^2} \left< f(x),sin(kx)\right>\end{equation}$
+$$ B_k=\frac{1}{\pi} \int_{-\pi}^{\pi}f(x)\sin(kx)dx = \frac{1}{\left\Vert sin(kx) \right\Vert^2} \left< f(x),sin(kx)\right>\tag{5}$$
 
 Found the boundary of the integral taking $[0, L]$, $f(x)$ changes into,
 
-$\begin{equation} f(x)=\frac{A_0}{2} + \sum_{k=1}^{\inf}\left( A_k \cos \left( \frac{2\pi k x}{L} \right) + B_k \sin \left( \frac{2\pi k x}{L} \right) \right) \end{equation}$
+$$ f(x)=\frac{A_0}{2} + \sum_{k=1}^{\inf}\left( A_k \cos \left( \frac{2\pi k x}{L} \right) + B_k \sin \left( \frac{2\pi k x}{L} \right) \right) \tag{6}$$
 
 Such that,
 
-$\begin{equation} A_k=\frac{2}{L} \int_{0}^{L}f(x)\cos \left( \frac{2\pi k x}{L} \right)dx \end{equation}$
+$$ A_k=\frac{2}{L} \int_{0}^{L}f(x)\cos \left( \frac{2\pi k x}{L} \right)dx \tag{7}$$
 
-$\begin{equation} B_k=\frac{2}{L} \int_{0}^{L}f(x)\sin\left( \frac{2\pi k x}{L} \right)dx \end{equation}$
+$$ B_k=\frac{2}{L} \int_{0}^{L}f(x)\sin\left( \frac{2\pi k x}{L} \right)dx \tag{8}$$
 
 ### 1.3 Inner Product of Hilbert Space
 
 #### Inner product
 
-$\begin{equation} \left<f(x),g(x) \right> = \int_a^bf(x)\bar g(x)dx \end{equation}$
+$$ \left<f(x),g(x) \right> = \int_a^bf(x)\bar g(x)dx \tag{9}$$
 
 For vectors $\underline f = \left[ f_1 \quad f_2 \cdots f_k \cdots f_n \right]^T $ and $\underline g = \left[ g_1 \quad g_2 \cdots g_k \cdots g_n \right]^T$, we have their inner product
 
-$\begin{equation} \left< \underline f, \underline g \right> =\underline g ^T \underline f = \sum_{k=1}^{n} f_k g_k \end{equation}$
+$$ \left< \underline f, \underline g \right> =\underline g ^T \underline f = \sum_{k=1}^{n} f_k g_k \tag{10}$$
 
 #### Riemann approximation
 
-$\begin{equation} \left< \underline f, \underline g \right>\Delta x =\sum_{k=1}^{n} f(x_k) g(x_k)\Delta x \end{equation}$
+$$ \left< \underline f, \underline g \right>\Delta x =\sum_{k=1}^{n} f(x_k) g(x_k)\Delta x \tag{11}$$
 
 where $\Delta x = L/(n-1) = (b-a)/(n-1)$.
 
 ### 1.4 Complex Fourier Series
 
-$\begin{equation} \left<f(x),g(x) \right> = \int_{-\pi}^{\pi} f(x)\bar g(x)dx \end{equation}$
+$$ \left<f(x),g(x) \right> = \int_{-\pi}^{\pi} f(x)\bar g(x)dx \tag{12}$$
 
 where $f(x) = \sum_{k=-\infty}^{\infty} c_k e^{ikx}$ and $e^{ikx} = \cos(kx) +i \sin(kx)$.
 
-$\begin{equation} f(x) = \sum_{k=-\infty}^{\infty} c_k e^{ikx} = \sum_{k=-\infty}^{\infty} (\alpha_k+i \beta_k)\left[\cos(kx) +i \sin(kx) \right]\end{equation}$
+$$ f(x) = \sum_{k=-\infty}^{\infty} c_k e^{ikx} = \sum_{k=-\infty}^{\infty} (\alpha_k+i \beta_k)\left[\cos(kx) +i \sin(kx) \right]\tag{13}$$
 
 Define $\psi_k :=e^{ikx}$ as the orthogonal base vectors. So we have
 
-$\begin{equation} \left< \psi_j, \psi_k \right>
+$$ \left< \psi_j, \psi_k \right>
 = \int_{-\pi}^{\pi}e^{ijx} e^{-ikx}dx
 =\int_{-\pi}^{\pi} e^{i(j-k)x}dx
 = \frac{1}{i(j-k)}\left[ e^{i(j-k)x}\right]^\pi_{-\pi}
-= \left\{ \begin{array}{lc} 0 ~~\rm{ if }~~ j \ne k \\ 2\pi ~~\rm{if } ~~j= k \end{array} \right.\end{equation}$
+= \left\{ \begin{array}{lc} 0 ~~\rm{ if }~~ j \ne k \\ 2\pi ~~\rm{if } ~~j= k \end{array} \right.\tag{14}$$
 
 Then $f(x)$ can be writen as
 
@@ -422,48 +422,44 @@ end
 
 If we already have the complex Fourier expression,
 
-$\begin{equation} f(x) = \sum_{k=-\infty}^{\infty} c_k e^{ik\pi x/L} \end{equation}$
+$$ f(x) = \sum_{k=-\infty}^{\infty} c_k e^{ik\pi x/L} \tag{15}$$
 
 where $\omega_k = \frac{k\pi}{L} = k \Delta \omega$, $\Delta \omega = \pi/L$, and $c_k = \frac{1}{2\pi} \left< f(x), \psi_k \right>  =\frac{1}{2L}\int_{-L}^{L} f(x) \underbrace{e^{-ik\pi x/L}}_{\psi_k}  dx $. The Fourier Transform expressed as,
 
-$\begin{equation} f(x) = \lim_{\Delta \omega \to 0}\sum_{k=-\infty}^{\infty} \frac{\Delta \omega}{2\pi} \int_{-\pi/\Delta \omega}^{\pi/\Delta \omega} f(\xi) e^{-ik \Delta \omega \xi} d\xi e^{ik \Delta \omega x} \\ = \int_{-\infty}^{\infty} \frac{1}{2\pi} \int_{-\infty}^{\infty} f(\xi) e^{-i \omega \xi} d\xi e^{i \omega x} d\omega\end{equation}$
+$$ f(x) = \lim_{\Delta \omega \to 0}\sum_{k=-\infty}^{\infty} \frac{\Delta \omega}{2\pi} \int_{-\pi/\Delta \omega}^{\pi/\Delta \omega} f(\xi) e^{-ik \Delta \omega \xi} d\xi e^{ik \Delta \omega x} \\ = \int_{-\infty}^{\infty} \frac{1}{2\pi} \int_{-\infty}^{\infty} f(\xi) e^{-i \omega \xi} d\xi e^{i \omega x} d\omega\tag{16}$$
 
 So the Fourier Transforms,
 
-$\begin{equation} \hat f(\omega) = \cal{F}\left(f(x)\right) = \int_{-\infty}^{\infty} f(x) e^{-i \omega x} dx \end{equation}$
+$$ \hat f(\omega) = \cal{F}\left(f(x)\right) = \int_{-\infty}^{\infty} f(x) e^{-i \omega x} dx \tag{17}$$
 
-$\begin{equation} f(x) = \cal{F}^{-1} \left( \hat f (\omega)\right) = \frac{1}{2\pi} \int_{-\infty}^{\infty} \hat f(\omega) e^{i \omega x} d\omega \end{equation}$
+$$ f(x) = \cal{F}^{-1} \left( \hat f (\omega)\right) = \frac{1}{2\pi} \int_{-\infty}^{\infty} \hat f(\omega) e^{i \omega x} d\omega \tag{18}$$
 
 These are the Fourier Transform Pair.
 
 ### 2.2 Fourier Transform and Derivatives
 
-$\begin{equation}
+$$
     \begin{array}{ll}
     \cal{F}\left( \frac{d}{dx}f(x)\right) &= \int_{-\infty}^{\infty} \underbrace{\frac{df(x)}{dx}}_{dv} \underbrace{e^{-i \omega x}}_{u} dx \\
     & = \underbrace{\left[ f(x)e^{-i \omega x} \right]^{\infty}_{-\infty}}_{uv=0} - \int_{-\infty}^{\infty} \underbrace{df(x)}_{v} \underbrace{(-i\omega e^{-i \omega x})}_{du} dx \\
     & = i \omega \underbrace{\int_{-\infty}^{\infty} f(x) e^{-i \omega x} dx}_{\cal{F}\left( f(x)\right)} \\
     & = i \omega \cal{F}\left( f(x)\right)
     \end{array}
-\end{equation}$
+\tag{19}$$
 
 ### 2.3 Fourier Transform and Convolution Integral
 
 Convolution integral
 
-$\begin{equation}
-    \left( f * g \right) = \int_{-\infty}^{\infty} f(x-\xi) g(\xi) d\xi
-\end{equation}$
+$$ \left( f * g \right) = \int_{-\infty}^{\infty} f(x-\xi) g(\xi) d\xi \tag{20}$$
 
 Fourier
 
-$\begin{equation}
-    \cal{F}\left( f*g \right) =  \cal{F}\left( f \right) \cal{F}\left( g \right) = \hat f \hat g
-\end{equation}$
+$$  \cal{F}\left( f*g \right) =  \cal{F}\left( f \right) \cal{F}\left( g \right) = \hat f \hat g \tag{21}$$
 
 While
 
-$\begin{equation}
+$$
     \begin{array}{ll}
     \cal{F}^{-1}\left( \hat f \hat g \right)(x) & = \frac{1}{2\pi} \int_{-\infty}^{\infty} \hat f(\omega) \hat g(\omega) e^{i\omega x} d\omega \\
     & = \frac{1}{2\pi} \int_{-\infty}^{\infty} \hat f(\omega)\left( \int_{-\infty}^{\infty} g(y) e^{-i\omega y} dy \right)e^{i\omega x} d\omega \\
@@ -471,7 +467,7 @@ $\begin{equation}
     & = \int_{-\infty}^{\infty} g(y) f(x-y) dy \\
     & = f * g
     \end{array}
-\end{equation}$
+\tag{22}$$
 
 ### 2.4 Parseval's Theorem
 
@@ -479,22 +475,21 @@ $$ \cal{F} \left( \alpha f(x) +\beta g(x)\right) = \alpha \cal{F}(f) + \beta \ca
 
 The Parseval's Theorem is
 
-$\begin{equation}
-    \int_{-\infty}^{\infty} \left\vert \hat f(\omega) \right\vert^2 d\omega = 2\pi\int_{-\infty}^{\infty} \left\vert f(x) \right\vert^2 dx
-\end{equation}$
+$$ \int_{-\infty}^{\infty} \left\vert \hat f(\omega) \right\vert^2 d\omega = 2\pi\int_{-\infty}^{\infty} \left\vert f(x) \right\vert^2 dx
+\tag{23}$$
 
 ## 3. The Discrete Fourier Transform (DFT)
 
 ### 3.1 DFT
 
-$\begin{equation} \begin{array}{}
+$$ \begin{array}{}
     \hat f_k & = \sum_{j=0}^{n-1} \left( f_j e^{-i2\pi jk/n} \right)\\
     f_k & = \frac{1}{n} \sum_{j=0}^{n-1} \left( \hat f_j e^{i2\pi jk/n} \right)
-\end{array}\end{equation}$
+\end{array}\tag{24}$$
 
 such that, $\omega_n = e^{-2\pi i/n}$
 
-$\begin{equation}
+$$
     \left[ \begin{array}{}
     \hat f_0 \\ \hat f_1 \\ \hat f_2 \\ \vdots \\ f_n
     \end{array} \right] =
@@ -506,7 +501,7 @@ $\begin{equation}
     1 & \omega_n^{n-1} & \omega_n^{2(n-1)} & \cdots & \omega_n^{(n-1)^2}
     \end{array} \right]
     \left[ \begin{array}{} f_0 \\ f_1 \\ f_2 \\ \vdots \\ f_n \end{array} \right]
-\end{equation}$
+\tag{25}$$
 where $\omega_n = e^{-2\pi i/n}$. This matrix expression is the DFT matrix.
 
 ```Matlab
@@ -535,7 +530,7 @@ The computational cost for DFT is $\cal{O}(n^2)$, for FFT is $\cal{O}(n\log (n))
 
 As in Eqn. $(25)$,
 
-$\begin{equation}
+$$
     \hat{\mathbf{f}}  = \cal{F}_{1024} \mathbf{f} = \left[ \begin{array}{}
     I_{512} & -D_{512} \\ I_{512} & -D_{512}\end{array} \right]
     \left[ \begin{array}{c}
@@ -543,9 +538,9 @@ $\begin{equation}
     \cal{0}  & \cal{F}_{512}
     \end{array} \right] \left[ \begin{array}{}
     \mathbf{f}_{even} \\ \mathbf{f}_{odd} \end{array} \right]
-\end{equation}$
+\tag{26}$$
 where $I_{512}$ is identity matrix with dimensionof $512 \times 512$, and
-$\begin{equation}
+$$
     D_{512} = \left[ \begin{array}{c}
     1 & 0  &  0 & \cdots & 0 \\
     0 & \omega_n & 0 & \cdots & 0 \\
@@ -553,7 +548,7 @@ $\begin{equation}
     \vdots & \vdots & \vdots & \ddots & \vdots \\
     0 & 0 & 0 & \cdots & \omega_n^{511}
     \end{array} \right]
-\end{equation}$
+\tag{27}$$
 
 So we can
 

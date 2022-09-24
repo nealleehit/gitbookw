@@ -1,8 +1,10 @@
-@[TOC](目录)
-
 <script type="text/javascript"
 src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+
+@[TOC](目录)
+
+https://zhuanlan.zhihu.com/p/267938546
 
 # 声弹性效应(Acoustoelastic effect)
 
